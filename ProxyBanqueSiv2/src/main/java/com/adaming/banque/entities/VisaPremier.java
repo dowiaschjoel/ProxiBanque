@@ -1,9 +1,8 @@
 package com.adaming.banque.entities;
 
-public class VisaPremier extends CompteEpargne{
+import java.io.Serializable;
 
-	public VisaPremier(float taux) {
-		super(taux);
-	}
+public class VisaPremier extends CompteEpargne implements Serializable{
+
 
 }

@@ -1,16 +1,20 @@
 package com.adaming.banque.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="client")
 @Table(name="clients")
-public class Client {
+public class Client implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -35,10 +39,15 @@ public class Client {
 	@Column(name="telephone_client")
 	private int telephone;
 	
+	@ManyToOne
+	private ConseillerClientele conseiller;
+	
 	@OneToOne
+	@JoinColumn(name="client_ccId", referencedColumnName="id_compte_bancaire")
 	private CompteCourant cc;
 	
 	@OneToOne
+	@JoinColumn(name="client_ceId", referencedColumnName="id_compte_bancaire")
 	private CompteEpargne ce;
 	
 	
