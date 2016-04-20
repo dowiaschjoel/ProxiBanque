@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -28,14 +29,16 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	public void updateStock(Client client) {
-		getSession().merge(client);
+		getSession().update(client);
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public void deleteStock(int id) {
 		String reqHQLGetById = "FROM clients WHERE id = ?";
-		Client result = (Client) getSession().createQuery(reqHQLGetById);
-
+		List<Client> result = (List<Client>) getSession().createQuery(reqHQLGetById);
+		result.get(0);  
+	    getSession().delete(result);  
 	}
 
 	@SuppressWarnings("unchecked")
