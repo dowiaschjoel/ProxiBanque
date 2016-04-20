@@ -51,7 +51,7 @@
 	<!-- pour utiliser les annotations spring -->
 	<context:annotation-config />
 	<!-- package contenant les classes annotées spring -->
-	<context:component-scan base-package="com.adaming.banque" />
+	<context:component-scan base-package="com.adaming.banque.entities" />
 	<!-- prise en compte du gestionnaire de transaction pour @Transactional -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 

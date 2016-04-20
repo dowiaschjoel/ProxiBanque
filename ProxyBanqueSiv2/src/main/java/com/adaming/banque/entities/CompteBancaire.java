@@ -3,6 +3,8 @@ package com.adaming.banque.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="compteBancaire")
@@ -19,60 +21,31 @@ public class CompteBancaire {
 	@Column(name="solde_compte")
 	private float solde;
 	
-	@Column(name="client_compte")
+	@JoinColumn(name="client_id", referencedColumnName = "id_client")
+	@OneToOne
 	private Client clientCompte;
-	
-	@Column(name="decouvert_compte_courant")
-	private int decouvert;
-	
-	@Column(name="carte_compte_courant")
-	private String carte;
-	
-	@Column(name="taux_compte_epargne")
-	private float taux;
 
 	public CompteBancaire() {
 		super();
 	}
 
-	public CompteBancaire(String dateOuverture, float solde, Client clientCompte, int decouvert, String carte) {
+	public CompteBancaire(String dateOuverture, float solde, Client clientCompte) {
 		super();
 		this.dateOuverture = dateOuverture;
 		this.solde = solde;
 		this.clientCompte = clientCompte;
-		this.decouvert = decouvert;
-		this.carte = carte;
 	}
 
 	
 
-	public CompteBancaire(String idCompteBancaire, String dateOuverture, float solde, Client clientCompte, float taux) {
+	public CompteBancaire(String idCompteBancaire, String dateOuverture, float solde, Client clientCompte) {
 		super();
 		this.idCompteBancaire = idCompteBancaire;
 		this.dateOuverture = dateOuverture;
 		this.solde = solde;
 		this.clientCompte = clientCompte;
-		this.taux = taux;
 	}
 
-	public CompteBancaire(String idCompteBancaire, String dateOuverture, float solde, Client clientCompte,
-			int decouvert, String carte) {
-		super();
-		this.idCompteBancaire = idCompteBancaire;
-		this.dateOuverture = dateOuverture;
-		this.solde = solde;
-		this.clientCompte = clientCompte;
-		this.decouvert = decouvert;
-		this.carte = carte;
-	}
-
-	public CompteBancaire(String dateOuverture, float solde, Client clientCompte, float taux) {
-		super();
-		this.dateOuverture = dateOuverture;
-		this.solde = solde;
-		this.clientCompte = clientCompte;
-		this.taux = taux;
-	}
 
 	public String getIdCompteBancaire() {
 		return idCompteBancaire;

@@ -2,7 +2,10 @@ package com.adaming.banque.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="client")
@@ -10,6 +13,7 @@ import javax.persistence.Table;
 public class Client {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_client")
 	private int id;
 	
@@ -31,10 +35,10 @@ public class Client {
 	@Column(name="telephone_client")
 	private int telephone;
 	
-	@Column(name="cc_client")
+	@OneToOne
 	private CompteCourant cc;
 	
-	@Column(name="ce_client")
+	@OneToOne
 	private CompteEpargne ce;
 	
 	
