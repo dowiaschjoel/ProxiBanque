@@ -1,15 +1,20 @@
 package com.adaming.banque.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity(name="CarteBancaire")
 @Table(name="cartesBancaires")
-public class CarteBancaire {
+public class CarteBancaire implements Serializable{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="numero_carte")
 	private int numeroCarte;
 	

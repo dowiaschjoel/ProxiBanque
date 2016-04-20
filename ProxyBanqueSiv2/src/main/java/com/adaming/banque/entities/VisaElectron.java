@@ -1,10 +1,10 @@
 package com.adaming.banque.entities;
 
-public class VisaElectron extends CompteCourant {
+import java.io.Serializable;
 
-	public VisaElectron(int decouvert, String carte) {
-		super(decouvert, carte);
-	}
+public class VisaElectron extends CompteCourant implements Serializable{
+
+	
 
 
 
