@@ -13,7 +13,7 @@ public class Agence {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="numero")
+	@Column(name="numero_agence")
 	private int numero;
 	@Column(name="adresse")
 	private String adresse;

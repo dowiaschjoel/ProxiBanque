@@ -28,23 +28,29 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	public void updateStock(Client client) {
-		// TODO Auto-generated method stub
+		getSession().merge(client);
 
 	}
 
-	public void deleteStock(Client client) {
-		// TODO Auto-generated method stub
+	public void deleteStock(int id) {
+		String reqHQLGetById = "FROM clients WHERE id = ?";
+		Client result = (Client) getSession().createQuery(reqHQLGetById);
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public Client getClientById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String reqHQLGetById = "FROM clients WHERE id = ?";
+
+		List<Client> clientListe = (List<Client>) getSession().createQuery(reqHQLGetById);
+		return clientListe.get(0);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Client> getAllClient() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String reqHQLGetAll = "SELECT * FROM clients";		
+		return (List<Client>) getSession().createQuery(reqHQLGetAll);
 	}
 
 }

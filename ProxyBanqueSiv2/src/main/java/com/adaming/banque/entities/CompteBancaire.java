@@ -1,7 +1,5 @@
 package com.adaming.banque.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity(name="compteBancaire")
 @Table(name="comptesBancaires")
-public class CompteBancaire implements Serializable{
+public class CompteBancaire {
 	
 	@Id
 	@Column(name="id_compte_bancaire")
@@ -22,9 +20,5 @@ public class CompteBancaire implements Serializable{
 	
 	@Column(name="solde_compte")
 	private float solde;
-	
-	@JoinColumn(name="client_id", referencedColumnName = "id_client")
-	@OneToOne
-	private Client clientCompte;
 
 }
