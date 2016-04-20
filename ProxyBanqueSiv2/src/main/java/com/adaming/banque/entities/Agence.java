@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity(name="agence")
-@Table(name="tables")
+@Table(name="agences")
 public class Agence {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="numero")
+	@Column(name="numero_agence")
 	private int numero;
 	@Column(name="adresse")
 	private String adresse;

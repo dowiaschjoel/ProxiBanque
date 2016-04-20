@@ -26,7 +26,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.adaming.banque" />
+		<property name="packagesToScan" value="com.adaming.banque.entities" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -51,7 +51,7 @@
 	<!-- pour utiliser les annotations spring -->
 	<context:annotation-config />
 	<!-- package contenant les classes annotées spring -->
-	<context:component-scan base-package="com.adaming.banque.entities" />
+	<context:component-scan base-package="com.adaming.banque" />
 	<!-- prise en compte du gestionnaire de transaction pour @Transactional -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 

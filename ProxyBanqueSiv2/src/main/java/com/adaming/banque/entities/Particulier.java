@@ -1,8 +1,6 @@
 package com.adaming.banque.entities;
 
-import java.io.Serializable;
-
-public class Particulier extends Client implements Serializable{
+public class Particulier extends Client {
 
 	private Boolean fortune;
 

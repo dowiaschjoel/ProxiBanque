@@ -1,7 +1,5 @@
 package com.adaming.banque.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity(name="CarteBancaire")
 @Table(name="cartesBancaires")
-public class CarteBancaire implements Serializable{
+public class CarteBancaire{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
