@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,12 @@ import com.adaming.banque.entities.Agence;
 @Repository("AgenceDao")
 @Transactional
 public class AgenceDaoImpl extends HibernateDaoSupport implements IAgenceDao{
+	
+	public AgenceDaoImpl(SessionFactory sessionFactory){
+		setSessionFactory(sessionFactory);
+	}
+	
+	
 
 	public void saveAgence(Agence agence) {
 		getHibernateTemplate().setCheckWriteOperations(false);
@@ -26,7 +33,6 @@ public class AgenceDaoImpl extends HibernateDaoSupport implements IAgenceDao{
 
 	public void deleteAgence(Agence agence) {
 		getHibernateTemplate().delete(agence);
-		
 	}
 
 	@SuppressWarnings("unchecked")
