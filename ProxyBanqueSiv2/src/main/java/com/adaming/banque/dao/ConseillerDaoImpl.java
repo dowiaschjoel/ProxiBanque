@@ -2,12 +2,31 @@ package com.adaming.banque.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.adaming.banque.entities.ConseillerClientele;
 
+@Repository("ConseillerDao")
+@Transactional
 public class ConseillerDaoImpl extends HibernateDaoSupport implements IConseillerDao {
 
+//	@Autowired
+//	private SessionFactory sessionFactory;
+	
+//	public ConseillerDaoImpl(SessionFactory sessionFactory) {
+//        setSessionFactory(sessionFactory);
+//    }
+	
+//	public Session getSession(){
+//		return sessionFactory.getCurrentSession();
+//	}
+	
 	public void saveConseiller(ConseillerClientele conseiller) {
 		getHibernateTemplate().setCheckWriteOperations(false);
 		getHibernateTemplate().save(conseiller);
