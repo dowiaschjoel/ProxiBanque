@@ -6,9 +6,9 @@ import com.adaming.banque.entities.Client;
 
 public interface IClientDao {
 	
-	void saveStock(Client client);
-	void updateStock(Client client);
-	void deleteStock(int id);
+	void saveClient(Client client);
+	void updateClient(Client client);
+	void deleteClient(int id);
 	Client getClientById(int id);
 	List<Client> getAllClient();
 }

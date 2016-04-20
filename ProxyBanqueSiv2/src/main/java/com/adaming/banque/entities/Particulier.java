@@ -1,5 +1,10 @@
 package com.adaming.banque.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity(name="particulier")
+@Table(name="particuliers")
 public class Particulier extends Client {
 
 	private Boolean fortune;
