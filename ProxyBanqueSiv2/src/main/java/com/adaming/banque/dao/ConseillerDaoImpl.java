@@ -2,12 +2,18 @@ package com.adaming.banque.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.adaming.banque.entities.ConseillerClientele;
 
+@Repository("ConseillerDao")
+@Transactional
 public class ConseillerDaoImpl extends HibernateDaoSupport implements IConseillerDao {
 
+	
 	public void saveConseiller(ConseillerClientele conseiller) {
 		getHibernateTemplate().setCheckWriteOperations(false);
 		getHibernateTemplate().save(conseiller);
@@ -31,7 +37,7 @@ public class ConseillerDaoImpl extends HibernateDaoSupport implements IConseille
 
 	@SuppressWarnings("unchecked")
 	public List<ConseillerClientele> getAllConseiller() {
-		String reqHQLGetAll= "conseillers";
+		String reqHQLGetAll= "FROM conseillers";
 
 		List<ConseillerClientele> conseillerListe = (List<ConseillerClientele>) getHibernateTemplate().find(reqHQLGetAll);
 		return conseillerListe;
