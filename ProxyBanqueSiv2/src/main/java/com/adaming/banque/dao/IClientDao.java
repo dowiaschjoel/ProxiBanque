@@ -8,7 +8,7 @@ public interface IClientDao {
 	
 	void saveStock(Client client);
 	void updateStock(Client client);
-	void deleteStock(Client client);
+	void deleteStock(int id);
 	Client getClientById(int id);
 	List<Client> getAllClient();
 }
